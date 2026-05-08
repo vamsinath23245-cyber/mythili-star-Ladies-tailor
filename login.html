@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Owner Login - Mythili Ladies Tailor</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    body { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #8b1e6d, #5b2c83); }
+    .login-box { width: 100%; max-width: 420px; background: white; border-radius: 20px; padding: 30px; box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
+    h1 { color: #5b2c83; margin-bottom: 10px; }
+    p { color: #666; margin-bottom: 20px; }
+    input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; margin-bottom: 14px; }
+    button { width: 100%; padding: 12px; border: none; border-radius: 10px; background: linear-gradient(135deg, #8b1e6d, #5b2c83); color: white; font-weight: bold; cursor: pointer; }
+    .hint { margin-top: 12px; font-size: 13px; color: #888; }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h1>Owner Login</h1>
+    <p>Login to manage prices, change images, and upload new collection.</p>
+    <form onsubmit="return loginOwner(event)">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p class="hint">Demo login: owner / 1234</p>
+  </div>
+
+  <script>
+    function loginOwner(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === 'owner' && password === '1234') {
+        localStorage.setItem('tailorAdminLogin', 'true');
+        window.location.href = 'admin.html';
+      } else {
+        alert('Wrong username or password');
+      }
+      return false;
+    }
+  </script>
+</body>
+</html>
